@@ -38,7 +38,19 @@ Resources directory contains source file.
       )
     )  
 
+# Sink Configuration
+Following sink configuration writes the output to console. It stores checkpoint at ./checkpoint/ directory which will be used by spark to processing from previous position in case of application restart.
 
+ windowcount
+    .writeStream
+      .format("console")
+      .outputMode("complete")
+      .option("checkpointLocation", "./checkpoint/")
+      .option("truncate", "false")
+      .start()
+      .awaitTermination()    
+	  
+	  
 # Sample Output
 +------------------------------------------+-----+
 |window                                    |count|
