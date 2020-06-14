@@ -38,11 +38,12 @@ def main(args: Array[String]): Unit = {
      import spark.implicits._
      val windowcount= df_DateConverted.groupBy(window($"TransactionTimeStamp", "3 minutes", "2 minutes")).count()
 
-    //Print output on console.
+    //Print output on cosole.
     windowcount
     .writeStream
       .format("console")
       .outputMode("complete")
+      .option("checkpointLocation", "./checkpoint/")
       .option("truncate", "false")
       .start()
       .awaitTermination()    
