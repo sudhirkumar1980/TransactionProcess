@@ -1,6 +1,8 @@
 # TransactionProcess
 TransactionProcess count transaction for sliding window of duration 3 minutes wih 2 min slide. Print the output to console. MockNeat tool was used to generate credit card transaction. It uses TransactionTime from source data to for window function.
 
+Launch.scala contains Main functions which need to be executed from IDE or command line.
+
 # Resources
 Resources directory contains source file.
 
@@ -35,6 +37,7 @@ Resources directory contains source file.
         StructField("TransactionTime", LongType, true)
       )
     )  
+
 
 # Sample Output
 +------------------------------------------+-----+
